@@ -3,21 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Global Impact Project - Building a Better Tomorrow</title>
+    <title>The Maajabu Global Impact Project</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f4f6f9; color: #1e293b; margin: 0; padding: 40px 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box; }
-        .portal-card { background: #ffffff; max-width: 480px; width: 100%; padding: 35px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; text-align: center; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: #f4f6f9; 
+            color: #1e293b; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            box-sizing: border-box; 
+        }
+        .portal-card { 
+            background: #ffffff; 
+            max-width: 500px; 
+            width: 100%; 
+            padding: 35px; 
+            border-radius: 16px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            border: 1px solid #e2e8f0; 
+            text-align: center; 
+        }
         .icon-banner { font-size: 40px; margin-bottom: 15px; }
         h2 { margin: 0 0 12px 0; color: #0f172a; font-size: 24px; font-weight: 700; }
-        .description { color: #475569; font-size: 15px; margin-bottom: 25px; line-height: 1.6; text-align: left; background-color: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid #10b981; }
+        .description { 
+            color: #475569; 
+            font-size: 15px; 
+            margin-bottom: 25px; 
+            line-height: 1.6; 
+            text-align: left; 
+            background-color: #f8fafc; 
+            padding: 20px; 
+            border-radius: 8px; 
+            border-left: 4px solid #10b981; 
+        }
         .network-selector { display: flex; gap: 10px; justify-content: center; margin-bottom: 25px; }
         .tab-btn { background-color: #f1f5f9; border: 1px solid #cbd5e1; padding: 10px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 13px; transition: all 0.15s ease; }
         .tab-btn.active { background-color: #10b981; color: white; border-color: #10b981; }
         .display-panel { background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 25px; margin-top: 15px; }
         .qr-container { background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: inline-block; margin-bottom: 15px; }
-        .qr-container img { display: block; max-width: 160px; height: auto; }
+        .qr-container img { display: block; max-width: 160px; height: auto; border: none; }
         .address-title { font-weight: bold; font-size: 12px; color: #475569; text-transform: uppercase; margin-bottom: 6px; text-align: left;}
         .address-box { background: #ffffff; border: 1px solid #cbd5e1; padding: 12px; border-radius: 6px; font-size: 13px; font-family: monospace; word-break: break-all; color: #334155; text-align: left; }
+        .hub-link { display: block; margin-top: 15px; color: #10b981; font-weight: 600; text-decoration: none; font-size: 14px; }
+        .hub-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -26,11 +58,10 @@
     <div class="icon-banner">🌍</div>
     <h2>Building a Better Tomorrow</h2>
     
-    <!-- 📝 Captivating, Important Campaign Message -->
     <div class="description">
-        Thank you for visiting my open-source resource hub. My life's mission is to use advanced software development and automation to build a sustainable future. 
+        At Maajabu Safaris, we believe travel should leave a lasting legacy. Our mission extends far beyond crafting tailor-made East African journeys—we are dedicated to uplifting communities.
         <br><br>
-        Every contribution to this portal directly empowers independent research, digital tools, and grassroots initiatives designed to protect vulnerable communities and support families facing crisis across the globe.
+        A percentage of all proceeds and voluntary support through this portal directly funds grassroots programs. Your contributions empower educational initiatives for vulnerable <strong>kids in Africa</strong>, support emergency shelter resources for <strong>homeless people</strong>, and fund community health networks. Together, we are building a better tomorrow.
     </div>
     
     <div class="network-selector">
@@ -41,15 +72,21 @@
 
     <div class="display-panel">
         <div class="qr-container">
+            <!-- 🌟 FIXED PUBLIC IMAGE URL ENGINE -->
             <img id="portal-qr" src="https://qrserver.com" alt="Donation QR">
         </div>
         <div class="address-title" id="asset-label">Bitcoin Wallet Address</div>
-        <div class="address-box" id="address-string">YOUR_BTC_ADDRESS</div>
+        <div class="address-box" id="address-string">YOUR_REAL_PUBLIC_BITCOIN_ADDRESS_HERE</div>
     </div>
+
+    <!-- 🔗 Directly hooks visitors back to your master landing hub domain -->
+    <a href="https://anirudhatalmale6-alt.github.io/maajabusafaris-landing/#top" target="_blank" class="hub-link">
+        ← Return to Maajabu Safaris Main Hub
+    </a>
 </div>
 
 <script>
-    // 💡 CONFIGURATION: Replace these placeholders with your real public inbound wallet keys
+    // 💡 CONFIGURATION: Paste your real public inbound wallet keys safely inside these quotes below
     const myWallets = {
         btc: "bc1qgeqv39vfcrlpnnle2k77p6fd4zf0l2cpqgkkqm",
         eth: "0x615987b94e993b3C633b08a357FA6a61Cb10B92f",
@@ -64,6 +101,7 @@
         const assetLabel = document.getElementById('asset-label');
         const addressString = document.getElementById('address-string');
 
+        // 🌟 FIXED STRINGS: Encodes address properties safely to prevent rendering crashes
         if (networkId === 'btc') {
             assetLabel.innerText = "Bitcoin Wallet Address";
             addressString.innerText = myWallets.btc;
@@ -78,10 +116,6 @@
             qrImg.src = `https://qrserver.com{encodeURIComponent(myWallets.sol)}`;
         }
     }
-    
-    // Set initial loading parameters cleanly
-    document.getElementById('address-string').innerText = myWallets.btc;
-    document.getElementById('portal-qr').src = `https://qrserver.com{encodeURIComponent(myWallets.btc)}`;
 </script>
 
 </body>
