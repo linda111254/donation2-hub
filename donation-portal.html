@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support My Work - Multi-Chain Donation Hub</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .portal-card {
+            background: #ffffff;
+            max-width: 480px;
+            width: 100%;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        h2 { margin: 0 0 10px 0; color: #0f172a; font-size: 24px; }
+        .description { color: #64748b; font-size: 15px; margin-bottom: 25px; line-height: 1.5; }
+        .network-selector {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        .tab-btn {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.15s ease;
+        }
+        .tab-btn.active {
+            background-color: #0284c7;
+            color: white;
+            border-color: #0284c7;
+        }
+        .display-panel {
+            background-color: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 15px;
+        }
+        .qr-container {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .qr-container img { display: block; max-width: 160px; height: auto; }
+        .address-title { font-weight: bold; font-size: 12px; color: #475569; text-transform: uppercase; margin-bottom: 6px; text-align: left;}
+        .address-box {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: monospace;
+            word-break: break-all;
+            color: #334155;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="portal-card">
+    <h2>Support My Open-Source Projects</h2>
+    <p class="description">If you find my automated scripts or tools helpful, feel free to drop a voluntary tip. All support is deeply appreciated!</p>
+    
+    <!-- 🎛️ Network Option Selector Buttons -->
+    <div class="network-selector">
+        <button class="tab-btn active" onclick="switchNetwork('btc')">🪙 BTC</button>
+        <button class="tab-btn" onclick="switchNetwork('eth')">🔷 ETH</button>
+        <button class="tab-btn" onclick="switchNetwork('sol')">☀️ SOL</button>
+    </div>
+
+    <!-- 🖼️ Live Dynamic Output Panel -->
+    <div class="display-panel">
+        <div class="qr-container">
+            <!-- Automatically requests a dynamic placeholder QR image grid -->
+            <img id="portal-qr" src="https://qrserver.com" alt="Donation QR Destination">
+        </div>
+        <div class="address-title" id="asset-label">Bitcoin Wallet Address</div>
+        <div class="address-box" id="address-string">PASTE_YOUR_BITCOIN_ADDRESS_HERE</div>
+    </div>
+</div>
+
+<script>
+    // 💡 CONFIGURATION: Paste your real public inbound wallet credentials safely inside these quotes below
+    const myWallets = {
+        btc: "bc1qgeqv39vfcrlpnnle2k77p6fd4zf0l2cpqgkkqm",
+        eth: "0x615987b94e993b3C633b08a357FA6a61Cb10B92f",
+        sol: "9QHR8C8JYnVnhc9FpspLFSZmPysU7n779AS2cCsvNosT"
+    };
+
+    function switchNetwork(networkId) {
+        // Toggle active visual highlight button state classes
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        const qrImg = document.getElementById('portal-qr');
+        const assetLabel = document.getElementById('asset-label');
+        const addressString = document.getElementById('address-string');
+
+        // Dynamically update UI parameters matching selected coin profile assets
+        if (networkId === 'btc') {
+            assetLabel.innerText = "Bitcoin Wallet Address";
+            addressString.innerText = myWallets.btc;
+            qrImg.src = `https://qrserver.com{encodeURIComponent(myWallets.btc)}`;
+        } else if (networkId === 'eth') {
+            assetLabel.innerText = "Ethereum / EVM Address";
+            addressString.innerText = myWallets.eth;
+            qrImg.src = `https://qrserver.com{encodeURIComponent(myWallets.eth)}`;
+        } else if (networkId === 'sol') {
+            assetLabel.innerText = "Solana Wallet Address";
+            addressString.innerText = myWallets.sol;
+            qrImg.src = `https://qrserver.com{encodeURIComponent(myWallets.sol)}`;
+        }
+    }
+</script>
+
+</body>
+</html>
